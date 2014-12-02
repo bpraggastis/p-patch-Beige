@@ -1,5 +1,24 @@
 source 'https://rubygems.org'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'dotenv-rails'
+  gem 'flog'
+end
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+gem 'rails_12factor', group: :production
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'brakeman', :require => false
+end
+
+gem 'simplecov', :require => false, :group => :test
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -37,4 +56,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
