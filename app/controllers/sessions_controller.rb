@@ -3,6 +3,6 @@ class SessionsController < ApplicationController
   skip_before_filter :logged_in, only: :create
 
   def create
-    
+    redirect_to root_path
   end
 end
