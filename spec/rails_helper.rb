@@ -24,7 +24,6 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 OmniAuth.config.test_mode = true
-
 OmniAuth.config.mock_auth[:developer] = OmniAuth::AuthHash.new({
   :provider => 'developer',
   :uid => '123545'
