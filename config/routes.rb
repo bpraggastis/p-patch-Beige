@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback", to: "sessions#create", as: :create
   post "/auth/:provider/callback", to: "sessions#create"
+  delete "sessions/destroy", to: "sessions#destroy", as: :destroy
 
   # For testing:
   post "sessions/create", to: "sessions#create"

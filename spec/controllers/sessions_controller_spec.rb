@@ -13,10 +13,15 @@ describe SessionsController do
   end
 
 
-  it "should create a session" do
+  it "should create and destroy a session" do
     expect(session[:user_id]).to eq nil
     post :create
     expect(session[:user_id]).not_to eq nil
+    post :destroy
+    expect(session[:user_id]).to eq nil
   end
+
+
+
 
 end
