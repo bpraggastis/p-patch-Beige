@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+
   root 'sessions#index'
-  
-  get "/auth/:provider/callback",  to: "sessions#create",    as: :login
+
+  resources :users
+
+  get "/auth/:provider/callback", to: "sessions#create", as: :create
   post "/auth/:provider/callback", to: "sessions#create"
+
+  # For testing:
+  post "sessions/create", to: "sessions#create"
+  get "sessions/create", to: "sessions#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
