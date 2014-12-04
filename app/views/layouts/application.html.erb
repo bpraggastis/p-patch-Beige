@@ -5,12 +5,25 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <div class="notifications">
+    <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+    <% end -%>
+  </div>
 </head>
+
 <body>
 
-  <%= link_to "Sign Up/Sign In", "/auth/developer" %>
 
-<%= yield %>
+
+  <%= yield %>
+
+
+
+
 
 </body>
+
+
 </html>
