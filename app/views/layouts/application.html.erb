@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
+  <%= stylesheet_link_tag "application", 'http://fonts.googleapis.com/css?family=Cherry+Cream+Soda', :media => "all" %>
   <div class="notifications">
     <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
@@ -14,10 +14,41 @@
 </head>
 
 <body>
+  <div class="container-fluid">
 
+    <div class="row">
+      <div class="col-xs-12 col-md-9">
+        <div class="site-name">
+          <h1>Site Name</h1>
+        </div>
+      </div>
 
+      <div class="col-xs-12 col-md-3">
+        <div class="user-box">
+          <% if @current_user && @admin %>
+            Post A New Article
+            Sign Out
+          <% elsif @current_user %>
+            Sign In As Admin
+            Sign Out
+          <% else %>
+            <div id="login">
+              <%= link_to "Sign In", "/auth/developer" %>
+            </div>
+            <div id="new-account">
+              <%= link_to "Create New User Account", new_user_path %>
+            </div>
+          <% end %>
+        </div><!-- /user-box -->
+      </div>
+
+    </div> <!-- /row-->
 
   <%= yield %>
+
+
+
+</div> <!-- /container-fluid -->
 
 
 
