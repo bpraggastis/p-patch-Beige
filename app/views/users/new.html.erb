@@ -1,0 +1,9 @@
+<%= form_for @user do |f|%>
+<ul>
+  <li>Username <%= f.text_field :username , placeholder: "Username"%></li>
+  <li>Email  <%= f.text_field :email, placeholder: "Email" %> </li>
+  <li>Admin Access Code  <%= f.text_field :admin_rights, placeholder: "Access Code" %> </li>
+  <li> <%= f.submit %> </li>
+
+</ul>
+<% end %>
