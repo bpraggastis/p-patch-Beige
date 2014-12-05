@@ -24,5 +24,9 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  def index
+    current_user
+  end
+
 
 end
