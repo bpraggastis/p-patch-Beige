@@ -6,16 +6,21 @@ class SessionsController < ApplicationController
   # see: http://stackoverflow.com/questions/1730377/receive-post-from-external-form
 
   def create
-    @user = User.find_by(username: params[:username], password: params[:password])
+    @user = User.find_by(username: params[:username])
     @auth = request.env["omniauth.auth"]
     if @user == nil && @auth == nil
       reject_credentials
     else
       if @user != nil
-        start_session(user_id)
+        if @user.authenticate(params[:password])
+          start_session(@user.id)
+        else
+          reject_credentials
+        end
       elsif check_credentials(@auth.uid) != nil
         start_session(check_credentials(@auth.uid).id)
       else
+        raise
         user = User.new_twitter_user(@auth.uid)
         start_session(user.id)
       end
@@ -40,8 +45,8 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Login credentials not recognized."
   end
 
-  def check_credentials
-    User.find_by(uid: request.env["omniauth.auth"].uid)
+  def check_credentials(uid)
+    User.find_by(uid: uid)
   end
 
 
