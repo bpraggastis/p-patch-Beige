@@ -2,10 +2,10 @@
 <html>
 <head>
   <title>PeaPatch</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
+  <%= stylesheet_link_tag "application", 'http://fonts.googleapis.com/css?family=Cherry+Cream+Soda', :media => "all" %>
   <div class="notifications">
     <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
@@ -14,10 +14,41 @@
 </head>
 
 <body>
+  <div class="container-fluid">
 
+    <div class="row">
+      <div class="col-xs-12 col-sm-9">
+        <div class="site-name">
+          <h1>Site Name</h1>
+        </div>
+      </div>
 
+      <div class="col-xs-12 col-sm-3">
+        <div class="user-box">
+          <% if @current_user && @current_user.is_admin? %>
+            Post A New Article
+            <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
+          <% elsif @current_user %>
+            Sign In As Admin
+            <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
+          <% else %>
+            <div id="login">
+              <%= link_to "Sign In", "/auth/developer" %>
+            </div>
+            <div id="new-account">
+              <%= link_to "Create New User Account", new_user_path %>
+            </div>
+          <% end %>
+        </div><!-- /user-box -->
+      </div>
+
+    </div> <!-- /row-->
 
   <%= yield %>
+
+
+
+</div> <!-- /container-fluid -->
 
 
 
