@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
       elsif check_credentials(@auth.uid) != nil
         start_session(check_credentials(@auth.uid).id)
       else
-        raise
         user = User.new_twitter_user(@auth.uid)
         start_session(user.id)
       end
