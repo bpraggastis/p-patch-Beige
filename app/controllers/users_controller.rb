@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
-
+  before_filter :current_user
 
   def show
     current_user

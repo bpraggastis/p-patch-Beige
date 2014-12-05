@@ -4,3 +4,27 @@
   background: #585481;
   color: #C49BBB;
 }
+
+.header {
+  height: 120px;
+  width: 80%;
+  margin: auto;
+  background: #585481;
+}
+
+.site-content {
+  width: 80%;
+  margin: auto;
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+
+  .site-content {
+    width: 100%;
+  }
+
+}

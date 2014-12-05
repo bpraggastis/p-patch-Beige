@@ -15,37 +15,41 @@
 
 <body>
   <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-9">
-        <div class="site-name">
-          Site Name
+    <div class="header">
+      <div class="row">
+        <div class="col-xs-12 col-sm-9">
+          <div class="site-name">
+            Site Name
+          </div>
         </div>
-      </div>
 
-      <div class="col-xs-12 col-sm-3">
-        <div class="user-box">
-          <% if @current_user && @current_user.is_admin? %>
-            Post A New Article
-            <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
-          <% elsif @current_user %>
-            Sign In As Admin
-            <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
-          <% else %>
-            <div id="login">
-              <%= link_to "Sign In", "/auth/developer" %>
-            </div>
-            <div id="new-account">
-              <%= link_to "Create New User Account", new_user_path %>
-            </div>
-          <% end %>
-        </div><!-- /user-box -->
-      </div>
+        <div class="col-xs-12 col-sm-3">
+          <div class="user-box">
+            <% if @current_user && @current_user.is_admin? %>
+              Signed in as <%= @current_user.username %>
+              <%= button_to "Post a New Article", "#", :class => "btn btn-default"%>
+              <%= button_to "Sign Out", destroy_path, :class => "btn btn-default", :method => "delete"%>
+            <% elsif @current_user %>
+              Signed in as <%= @current_user.username %>
+              <%= button_to "Sign In As Admin", "#", :class => "btn btn-default"%>
+              <%= button_to "Sign Out", destroy_path, :class => "btn btn-default", :method => "delete"%>
+            <% else %>
+              <div id="login">
+                <%= link_to "Sign In", "/auth/developer", :class => "btn btn-default" %>
+              </div>
+              <div id="new-account">
+                <%= link_to "Create New User Account", new_user_path, :class => "btn btn-default" %>
+              </div>
+            <% end %>
+          </div><!-- /user-box -->
+        </div>
 
-    </div> <!-- /row-->
+      </div> <!-- /row-->
+    </div><!-- /header -->
 
-  <%= yield %>
-
+  <div class="site-content">
+    <%= yield %>
+  </div>
 
 
 </div> <!-- /container-fluid -->
