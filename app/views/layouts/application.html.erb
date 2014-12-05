@@ -17,20 +17,20 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-sm-9">
         <div class="site-name">
           <h1>Site Name</h1>
         </div>
       </div>
 
-      <div class="col-xs-12 col-md-3">
+      <div class="col-xs-12 col-sm-3">
         <div class="user-box">
           <% if @current_user && @current_user.is_admin? %>
             Post A New Article
             <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
           <% elsif @current_user %>
             Sign In As Admin
-            Sign Out
+            <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
           <% else %>
             <div id="login">
               <%= link_to "Sign In", "/auth/developer" %>

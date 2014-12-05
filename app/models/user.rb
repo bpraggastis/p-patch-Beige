@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def is_admin?
-    true
+    false
   end
 
 
