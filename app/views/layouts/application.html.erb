@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag "application", 'http://fonts.googleapis.com/css?family=Cherry+Cream+Soda', :media => "all" %>
   <div class="notifications">
     <% flash.each do |name, msg| -%>
@@ -27,12 +28,13 @@
           <div class="user-box">
             <% if @current_user && @current_user.is_admin? %>
               Signed in as <%= @current_user.username %>
-              <%= button_to "Post a New Article", "#", :class => "btn btn-default"%>
-              <%= button_to "Sign Out", destroy_path, :class => "btn btn-default", :method => "delete"%>
+              
+              <%= button_to "Post a New Article", "#", {:class => "btn btn-default", :role => "button"}%>
+              <%= button_to "Sign Out", destroy_path, :class => "btn btn-danger", :method => "delete"%>
             <% elsif @current_user %>
               Signed in as <%= @current_user.username %>
               <%= button_to "Sign In As Admin", "#", :class => "btn btn-default"%>
-              <%= button_to "Sign Out", destroy_path, :class => "btn btn-default", :method => "delete"%>
+              <%= button_to "Sign Out", destroy_path, :class => "btn btn-danger", :method => "delete"%>
             <% else %>
               <div id="login">
                 <%= link_to "Sign In", "/auth/developer", :class => "btn btn-default" %>
