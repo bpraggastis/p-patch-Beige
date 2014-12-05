@@ -1,6 +1,35 @@
-.site-name h1{
+body {
+  background: #AE9C36;
+  color: #1B2B12;
+}
+
+.site-name {
   font-family: 'Cherry Cream Soda', cursive;
   font-size: 48pt;
-  background: #585481;
-  color: #C49BBB;
+  color: #AE9C36;
+}
+
+.header {
+  height: 180px;
+  width: 80%;
+  margin: auto;
+  background: #577101;
+  border: 3px solid #AE9C36;
+}
+
+.site-content {
+  width: 80%;
+  margin: auto;
+}
+
+
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+  }
+
+  .site-content {
+    width: 100%;
+  }
+
 }
