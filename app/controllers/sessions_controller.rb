@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
       elsif check_credentials(@auth.uid) != nil
         start_session(check_credentials(@auth.uid).id)
       else
+        raise
         user = User.new_twitter_user(@auth.uid)
         start_session(user.id)
       end
@@ -44,8 +45,8 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Login credentials not recognized."
   end
 
-  def check_credentials
-    User.find_by(uid: request.env["omniauth.auth"].uid)
+  def check_credentials(uid)
+    User.find_by(uid: uid)
   end
 
 
