@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def is_admin?
-    false
+    true
   end
 
   def self.new_twitter_user(auth_hash)
