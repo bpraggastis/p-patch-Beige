@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'sessions#index'
 
   resources :users
+  resources :articles
 
   get "/auth/:provider/callback", to: "sessions#create", as: :create
   post "/auth/:provider/callback", to: "sessions#create"
