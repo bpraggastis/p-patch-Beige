@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
-
   end
 
   def new
@@ -23,7 +21,6 @@ class UsersController < ApplicationController
       redirect_to root_path, notice: "New Account Created."
     else
       redirect_to create_path, notice: "Failed to create account."
-
     end
   end
 

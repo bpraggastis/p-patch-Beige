@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
-  skip_before_filter :logged_in, only: :create
 
   #I don't believe we need the above two lines.
   # see: http://stackoverflow.com/questions/1730377/receive-post-from-external-form
@@ -22,6 +21,10 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_path
+  end
+
+  def index
+    current_user
   end
 
 

@@ -27,7 +27,7 @@
         <div class="user-box">
           <% if @current_user && @current_user.is_admin? %>
             Post A New Article
-            Sign Out
+            <%= button_to "Sign Out", destroy_path, :class => "button", :method => "delete"%>
           <% elsif @current_user %>
             Sign In As Admin
             Sign Out
