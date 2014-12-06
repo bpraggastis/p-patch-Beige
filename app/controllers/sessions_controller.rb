@@ -33,6 +33,9 @@ class SessionsController < ApplicationController
 
   def index
     current_user
+    number_of_articles = 3
+    @snippet_length = 5
+    @articles = Article.latest(number_of_articles)
   end
 
   def start_session(user_id)

@@ -4,7 +4,15 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def is_admin?
-    false
+    true if admin_rights == "true"
+  end
+
+  def make_admin
+    update(admin_rights: "true")
+  end
+
+  def revoke_admin
+    update(admin_rights: nil)
   end
 
   def self.new_twitter_user(auth_hash)
