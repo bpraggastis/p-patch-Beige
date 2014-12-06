@@ -30,10 +30,9 @@ class ArticlesController < ApplicationController
 
   def check_if_admin
     if current_user
-      raise 'Only admins allowed!' unless current_user.is_admin?
+      redirect_to root_path, notice: "Only admins allowed!" if !current_user.is_admin?
     else
-      # or you can use the authenticate_user! devise provides to only allow signed_in users
-      raise 'Please sign in!'
+      redirect_to root_path, notice: "Please sign in!"
     end
   end
 end
