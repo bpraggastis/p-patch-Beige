@@ -7,47 +7,57 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag "application", 'http://fonts.googleapis.com/css?family=Cherry+Cream+Soda', :media => "all" %>
-  <div class="notifications">
-    <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: name %>
-    <% end -%>
-  </div>
+
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="header">
-      <div class="row">
-        <div class="col-xs-12 col-sm-9">
-          <div class="site-name">
-            Site Name
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-3">
-          <div class="user-box">
-            <% if @current_user && @current_user.is_admin? %>
-              Signed in as <%= @current_user.username %>
-
-              <%= button_to "Post a New Article", "#", {:class => "btn btn-default btn-xs", :role => "button"}%>
-              <%= button_to "Sign Out", destroy_path, :class => "btn btn-danger btn-xs", :method => "delete"%>
-            <% elsif @current_user %>
-              Signed in as <%= @current_user.username %>
-              <%= button_to "Sign In As Admin", "#", :class => "btn btn-default btn-xs"%>
-              <%= button_to "Sign Out", destroy_path, :class => "btn btn-danger btn-xs", :method => "delete"%>
-            <% else %>
-              <div id="login">
-                <%= link_to "Sign In", "/auth/developer", :class => "btn btn-default btn-xs" %>
+  <div class="header container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-9 site-name">
+          Whirled Peas Patch
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <div id="user-box">
+          <% if @current_user && @current_user.is_admin? %>
+            Signed in as <%= @current_user.username %>
+            <%= button_to "Post a New Article", "#", {:class => "btn btn-default btn-xs", :role => "button"}%>
+            <%= button_to "Sign Out", destroy_path, :class => "btn btn-danger btn-xs", :method => "delete"%>
+          <% elsif @current_user %>
+            <span class="white">You are signed in as  <%= @current_user.display_name || @current_user.username %></span>
+            <%= button_to "Sign In As Admin", "#", :class => "pea-logo btn btn-default btn-xs"%>
+            <%= button_to "Sign Out", destroy_path, :class => "btn btn-danger btn-xs", :method => "delete"%>
+          <% else %>
+            <div id="choices-for-signing-in" class="white">
+              <div id="wp">SIGN IN WITH:&nbsp
+                <%= link_to image_tag("twitter_32.png", class: "twitter-bird img-circle"), "/auth/twitter" %>
+                <span >&nbspOR&nbsp</span>
+                <span class="pea-logo btn btn-default btn-sm">
+                  Whirled Peas
+                </span>
               </div>
-              <div id="new-account">
-                <%= link_to "Create New User Account", new_user_path, :class => "btn btn-default btn-xs" %>
+              <div id="sign-in" class = "">
+                <%= form_tag '/sessions/create' do%>
+                <ul class = "list-unstyled list-inline">
+                  <li><%= text_field_tag :username , nil, placeholder: "Username", class: "pea-color"%></li>
+                  <li><%= password_field_tag :password, nil, placeholder: "Password", class: "pea-color" %> </li>
+                  <li><span ><%= submit_tag "Sign In With Whirled Peas", :class => "pea-logo btn btn-default btn-xs" %> </span></li>
+                </ul>
+                <% end %>
               </div>
-            <% end %>
-          </div><!-- /user-box -->
-        </div>
+              <%= link_to "Create A Whirled Peas Account", new_user_path, :class => "pea-logo btn btn-default btn-xs" %>
+            </div>
+          <% end %>
+        </div><!-- /user-box -->
+      </div>
 
-      </div> <!-- /row-->
-    </div><!-- /header -->
+    </div> <!-- /header row-->
+    <div class="notifications">
+      <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+      <% end -%>
+    </div>
+  </div><!-- /container -->
+
 
   <div class="site-content">
     <%= yield %>

@@ -3,18 +3,54 @@ body {
   color: #1B2B12;
 }
 
+.twitter-bird {
+  background-color: lightblue;
+  border-radius: 100%;
+
+}
+
 .site-name {
+  display: block;
   font-family: 'Cherry Cream Soda', cursive;
   font-size: 48pt;
   color: #AE9C36;
+  background: #577101;
+  text-align: center;
+
 }
 
 .header {
-  height: 180px;
-  width: 80%;
+  display: block;
+  height: auto;
+  // height: 180px;
+  height: auto;
+  width: 100%;
   margin: auto;
   background: #577101;
-  border: 3px solid #AE9C36;
+  // border: 3px solid #AE9C36;
+
+
+  #submit-sign-in {
+    display: inlint-block;
+    width: auto;
+    float: left
+  }
+
+}
+
+.white {
+  color: white;
+}
+
+.pea-color {
+  color: #577101;
+}
+
+.pea-logo {
+  border: solid #AE9C36;
+  background: #667650;
+  border-radius: 100%;
+  color: #cbb973;
 }
 
 .site-content {
@@ -22,13 +58,46 @@ body {
   margin: auto;
 }
 
+#sign-in {
+  display: block;
+  border: solid black;
+}
+
+#user-box {
+  display: block;
+
+}
+
+.notifications {
+  display: block;
+  position: center;
+  text-align: center;
+  color: red;
+  background: white;
+}
+
 
 @media (max-width: 768px) {
   .header {
     width: 100%;
+
   }
 
   .site-content {
+    width: 100%;
+  }
+
+  .site-name {
+    display: block;
+    height: auto;
+
+
+  }
+
+  #sign-in {
+  }
+
+  #user-box {
     width: 100%;
   }
 
