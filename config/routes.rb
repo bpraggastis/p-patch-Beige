@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post "sessions/create", to: "sessions#create"
   get "sessions/create", to: "sessions#create"
 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
