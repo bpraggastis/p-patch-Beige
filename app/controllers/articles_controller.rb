@@ -8,23 +8,14 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
-    if @article.save
-      redirect_to @article
-    else
-      render :new
-    end
+    @article.save ? redirect_to(@article) : render(:new)
   end
 
   def edit
   end
 
   def update
-    if @article.update(article_params)
-      redirect_to @article
-    else
-      render :edit
-    end
+    @article.update(article_params) ? redirect_to(@article) : redirect_to(@article)
   end
 
   def show
