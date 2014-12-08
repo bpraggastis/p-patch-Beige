@@ -1,0 +1,25 @@
+<%= form_for @event , :html => {:class => "form-horizontal"} do |f| %>
+
+<% f.hidden_field :uid, value: session[:user_id] %>
+
+<%= f.label :title %>:
+<%= f.text_field :title, class: "form-control" %><br />
+
+<%= f.label :event_datetime %>
+<%= f.text_field :event_datetime, class: "form-control" %><br />
+
+<%= f.label :location %>:
+<%= f.text_field :location, class: "form-control" %><br />
+
+<%= f.label :description %>:
+<%= f.text_area :description, class: "form-control" %><br />
+
+<%= f.label :organizer %>:
+<%= f.text_field :organizer, class: "form-control" %><br />
+
+<%= f.label :contact_email %>:
+<%= f.text_field :contact_email, class: "form-control" %><br />
+
+<%= f.submit class: "btn btn-default" %>
+
+<% end %>
