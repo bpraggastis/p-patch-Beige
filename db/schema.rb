@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20141207031240) do
 
   create_table "events", force: true do |t|
     t.string   "title"
-    t.string   "date"
-    t.string   "time"
+    t.datetime "event_datetime"
     t.string   "location"
     t.string   "organizer"
     t.string   "contact_email"
     t.text     "description"
+    t.integer  "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
