@@ -2,10 +2,12 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    
+
   end
 
   def create
-    raise params.inspect
+
   end
 
   private
