@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = find_article
     if @article.update(article_params)
       redirect_to @article
     else
