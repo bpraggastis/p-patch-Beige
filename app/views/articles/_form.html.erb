@@ -1,5 +1,7 @@
 <%= form_for @article , :html => {:class => "form-horizontal"} do |f| %>
 
+  <%= f.hidden_field :uid, value: session[:user_id] %>
+
   <%= f.label :title %>:
   <%= f.text_field :title, class: "form-control" %><br />
 
