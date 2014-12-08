@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password :validations => false
   has_many :articles
   has_many :comments
+  has_many :events
 
   def is_admin?
     true if admin_rights == "true"
