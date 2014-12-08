@@ -39,6 +39,15 @@ body {
 
 }
 
+.header-image {
+  display: block;
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-left: 20px;
+
+}
+
 .white {
   color: white;
 }
@@ -102,5 +111,7 @@ body {
   #user-box {
     width: 100%;
   }
+
+
 
 }
