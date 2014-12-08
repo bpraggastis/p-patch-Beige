@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :check_if_admin, only: [:new, :create, :edit]
+  before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def new
     @article = Article.new
@@ -16,11 +17,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    find_article
   end
 
   def update
-    find_article
     if @article.update(article_params)
       redirect_to @article
     else
@@ -29,11 +28,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    find_article
   end
 
   def destroy
-    find_article
     @article.destroy
     redirect_to root_path
   end
