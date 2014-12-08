@@ -2,14 +2,15 @@ Rails.application.routes.draw do
 
   root 'sessions#index'
 
-  resources :users
-  resources :articles
+  resources :users, :articles, :events, :calendars
 
+
+  # For Twitter login
   get "/auth/:provider/callback", to: "sessions#create", as: :create
   post "/auth/:provider/callback", to: "sessions#create"
   delete "sessions/destroy", to: "sessions#destroy", as: :destroy
 
-  # For testing:
+  # For logging in through Whirled Peas:
   post "sessions/create", to: "sessions#create"
   get "sessions/create", to: "sessions#create"
 
