@@ -16,11 +16,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = find_article
+    find_article
   end
 
   def update
-    @article = find_article
+    find_article
     if @article.update(article_params)
       redirect_to @article
     else
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private
@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
   end
 
   def find_article
-    Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def check_if_admin
