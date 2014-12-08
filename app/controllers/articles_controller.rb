@@ -29,11 +29,13 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = find_article
+    find_article
   end
 
   def destroy
-
+    find_article
+    @article.destroy
+    redirect_to root_path
   end
 
   private
