@@ -1,24 +1,14 @@
+<div class = "container-fluid">
 
+  <div class = "row">
 
+    <div class = "half-page col-xs-12 col-sm-6">
+      <%= render "articles/articles" %>
+    </div>
 
+    <div class = "half-page col-xs-12 col-sm-6">
+      <%= render "events/events" %>
+    </div>
 
-
-
-
-<div class="row">
-  <div class="col-xs-12 col-sm-6">
-    NEWS FEED
-    <% @articles.each do |article| %>
-      <div class="article-container">
-        <h2><%= link_to article.title, article %></h2>
-        <p><%= article.created_at %></p>
-        <p><%= article.content_snippet(@snippet_length) %>...</p>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="col-xs-12 col-sm-6">
-    <%= image_tag("whirled-peas.jpg", :class => "calendar-image img-circle") %>
-  </div>
-
-</div>
+  </div><!-- row -->
+</div><!-- container -->
