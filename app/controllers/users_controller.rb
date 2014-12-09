@@ -22,6 +22,7 @@ class UsersController < ApplicationController
                                 params[:user][:email],
                                 params[:user][:display_name]
     if User.find_by(username: username) != nil
+      # this isn't working right now
       redirect_to :back, notice: "Username already in use"
     else
       @user = User.new(
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
         )
     end
     if @user.save
+      NewsMailer.welcome(@user.id).deliver
       redirect_to root_path, notice: "New Account Created. Please login"
     else
       redirect_to create_path, notice: "Failed to create account."
