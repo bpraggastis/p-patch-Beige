@@ -1,5 +1,5 @@
 <h2><%= @article.title %></h2>
-<p>Written by: <%= @article.user  %></p>
+<p>Written by: <%= @article.user.display_name %></p>
 <p>
   <%= @article.created_at %>
 </p>
