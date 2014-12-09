@@ -32,7 +32,9 @@ class SessionsController < ApplicationController
   end
 
   def index
+  
     current_user
+    @user = User.find(session[:user_id])
     @events = Event.all.sort_by{|event| event.event_datetime}.reverse
     number_of_articles = 3
     @snippet_length = 5
