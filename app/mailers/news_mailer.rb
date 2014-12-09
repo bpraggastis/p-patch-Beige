@@ -3,7 +3,7 @@ class NewsMailer < ActionMailer::Base
 
   def welcome(user_id)
     @user = User.find(user_id)
-    mail(to: "bookis.smuin+club@gmail.com", subject: "Welcome to Whirled Peas")
+    mail(to: "bookis.smuin+club@gmail.com", subject: "Welcome to Whirled Peas News")
   end
 
 end
