@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save ? redirect_to(@article) : render(:new)
+    @article.save ? send_email_and_redirect_to(@article) : render(:new)
   end
 
   def edit
@@ -43,5 +43,10 @@ class ArticlesController < ApplicationController
     else
       redirect_to root_path, notice: "Please sign in!"
     end
+  end
+
+  def send_email_and_redirect_to(article)
+    NewsMailer.send_article(article.id).deliver
+    redirect_to(@article)
   end
 end
