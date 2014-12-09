@@ -1,0 +1,15 @@
+<div class = "event-list">
+
+  <ul>
+
+
+
+  <% @events.each do |event| %>
+
+  <li><strong><%=  event.title %></strong>&nbsp <%=   event.event_datetime.strftime("%b %e, %Y %I:%M %P") %>  </span> </li>
+</li>
+  <% end %>
+
+</ul>
+
+</div>
