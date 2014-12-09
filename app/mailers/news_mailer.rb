@@ -9,7 +9,7 @@ class NewsMailer < ActionMailer::Base
   def send_article(article_id)
     @article = Article.find(article_id)
     user_emails = User.all.collect(&:email).join(",")
-    mails(to: user_emails, subject: "[whirled-peas] A new event was just posted!")
+    mail(to: user_emails, subject: "[whirled-peas] A new event was just posted!")
   end
 
 end
