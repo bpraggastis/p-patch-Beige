@@ -29,4 +29,9 @@ module ApplicationHelper
       nil
     end
   end
+
+  def sign_out_button
+    @current_user ? button_to("Sign Out", destroy_path, :class => "btn btn-danger btn-xs", :method => "delete") : nil
+  end
+
 end
