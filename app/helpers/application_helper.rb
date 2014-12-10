@@ -38,4 +38,8 @@ module ApplicationHelper
     @current_user && !@current_user.is_admin? ? button_to("Sign In As Admin", "#", :class => "pea-logo btn btn-default btn-xs") : nil
   end
 
+  def signup_link
+    @current_user ? nil : link_to("Create A Whirled Peas Account", new_user_path, :class => "pea-logo btn btn-default btn-xs")
+  end
+
 end

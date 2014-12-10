@@ -27,6 +27,7 @@
           <%= link_to_signin_as_admin %>
           <%= link_to_post_new_article %>
           <%= sign_out_button %>
+          <%= signup_link %>
           <% if @current_user && @current_user.is_admin? %>
             Signed in as <%= @current_user.username %></br>
             <%= link_to "Post a New Article", new_article_path, {:class => "btn btn-default btn-xs", :role => "button"}%>
