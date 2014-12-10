@@ -21,4 +21,12 @@ module ApplicationHelper
         end+'</div>'.html_safe
     end
   end
+
+  def link_to_post_new_article
+    if @current_user && @current_user.is_admin?
+      link_to("Post a New Article", new_article_path, {:class => "btn btn-default btn-xs", :role => "button"})
+    else
+      nil
+    end
+  end
 end
