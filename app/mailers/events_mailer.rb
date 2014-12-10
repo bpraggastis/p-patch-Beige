@@ -6,7 +6,7 @@ class EventsMailer < ActionMailer::Base
     @event = Event.find(event_id)
     mail(to:      "noreply@whirledpeas.com",
          bcc:     "bpraggastis@gmail.com",
-         subject: "#{@event.title}")
+         subject: "Whirled Peas invites you to #{@event.title} on #{@event.event_datetime}.")
   end
 
 end
