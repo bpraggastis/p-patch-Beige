@@ -34,4 +34,8 @@ module ApplicationHelper
     @current_user ? button_to("Sign Out", destroy_path, :class => "btn btn-danger btn-xs", :method => "delete") : nil
   end
 
+  def link_to_signin_as_admin
+    @current_user && !@current_user.is_admin? ? button_to("Sign In As Admin", "#", :class => "pea-logo btn btn-default btn-xs") : nil
+  end
+
 end

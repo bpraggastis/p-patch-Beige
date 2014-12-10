@@ -24,6 +24,7 @@
       <div class="col-xs-12 col-sm-3">
         <div id="user-box">
           <%= user_tagline %></br>
+          <%= link_to_signin_as_admin %>
           <%= link_to_post_new_article %>
           <%= sign_out_button %>
           <% if @current_user && @current_user.is_admin? %>
