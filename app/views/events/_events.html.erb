@@ -3,20 +3,14 @@
   <% if @current_user %>
     <%= link_to "Create a New Event", new_event_path, class:"pea-logo btn btn-default" %>
   <% end %>
-
   <ul>
-
-
     EVENTS
+    <% @events.each do |event| %>
+      <li><strong><%=  event.title %></strong>&nbsp <%= event.event_datetime.strftime("%b %e, %Y %I:%M %P") %></li>
+          </li>
+      <li> <%= button_to "DELETE", event_path(event.id), method: "delete"  %>  </li>
+    <% end %>
 
-
-
-  <% @events.each do |event| %>
-
-  <li><strong><%=  event.title %></strong>&nbsp <%= event.event_datetime.strftime("%b %e, %Y %I:%M %P") %>  </span> </li>
-</li>
-  <% end %>
-
-</ul>
+  </ul>
 
 </div>
