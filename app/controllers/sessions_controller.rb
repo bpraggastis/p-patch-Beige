@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :create
 
-
   #I don't believe we need the above two lines.
   # see: http://stackoverflow.com/questions/1730377/receive-post-from-external-form
 
@@ -32,7 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def index
-    current_user
+    @events = Event.all.sort_by{|event| event.event_datetime}.reverse
     number_of_articles = 3
     @snippet_length = 5
     @articles = Article.latest(number_of_articles)
@@ -40,7 +39,7 @@ class SessionsController < ApplicationController
 
   def start_session(user_id)
     session[:user_id] = user_id
-    redirect_to user_path(user_id)
+    redirect_to root_path
   end
 
   def reject_credentials

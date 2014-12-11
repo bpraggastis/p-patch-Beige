@@ -1,0 +1,32 @@
+<div class = "event-emailer">
+
+
+  <h1>Whirled Peas Patch: Event Announcemnt</h1>
+
+  <h2><%= @event.title %></h2>
+
+  <p>
+    <%= @event.event_datetime.strftime("%b %e, %Y %I:%M %P") %>
+  </p>
+
+  <p>
+    <% if @event.location != nil %>
+      <%= "Event location: #{@event.location}" %>
+    <% end %>
+  </p>
+
+  <p>
+    <% if @event.description != nil %>
+      <%= "Event description: #{@event.description}" %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= "Organized by: #{@event.organizer}" %>
+  </p>
+
+  <p>
+    <%= "Contact: #{@event.contact_email}" %>
+  </p>
+
+</div>

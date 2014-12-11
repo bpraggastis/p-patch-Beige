@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_filter :check_if_admin, only: [:new, :create, :edit]
+  before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   def new
     @article = Article.new
@@ -7,25 +9,32 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-
-    if @article.save
-      redirect_to @article
-    else
-      render :new
-    end
+    @article.save ? redirect_to(@article) : render(:new)
   end
 
   def edit
   end
 
+  def update
+    @article.update(article_params) ? redirect_to(@article) : redirect_to(@article)
+  end
+
   def show
-    @article = Article.find(params[:id])
+  end
+
+  def destroy
+    @article.destroy
+    redirect_to root_path
   end
 
   private
 
   def article_params
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :user_id)
+  end
+
+  def find_article
+    @article = Article.find(params[:id])
   end
 
   def check_if_admin
