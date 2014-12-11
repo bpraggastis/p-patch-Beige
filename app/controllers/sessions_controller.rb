@@ -39,7 +39,7 @@ class SessionsController < ApplicationController
 
   def start_session(user_id)
     session[:user_id] = user_id
-    redirect_to user_path(user_id)
+    redirect_to root_path
   end
 
   def reject_credentials

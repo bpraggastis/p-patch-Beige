@@ -40,16 +40,19 @@
                   Whirled Peas
                 </span>
               </div>
-              <div id="sign-in" class = "">
+              <div id="sign-in" class = "wrapper">
+
                 <%= form_tag '/sessions/create' do%>
                 <ul class = "list-unstyled list-inline">
-                  <li><%= text_field_tag :username , nil, placeholder: "Username", class: "pea-color"%></li>
-                  <li><%= password_field_tag :password, nil, placeholder: "Password", class: "pea-color" %> </li>
-                  <li><span ><%= submit_tag "Sign In With Whirled Peas", :class => "pea-logo btn btn-default btn-xs" %> </span></li>
+                  <li><%= text_field_tag :username , nil, placeholder: "Username", class: "form-control pea-color"%></li>
+                  <li><%= password_field_tag :password, nil, placeholder: "Password", class: "form-control pea-color" %> </li>
+                  <li><span ><%= submit_tag "Sign In With Whirled Peas", :class => "pea-logo btn btn-default btn-sm" %> </span></li>
                 </ul>
                 <% end %>
+
+
               </div>
-              <%= link_to "Create A Whirled Peas Account", new_user_path, :class => "pea-logo btn btn-default btn-xs" %>
+              <%= link_to "Create A Whirled Peas Account", new_user_path, :class => "pea-logo btn btn-default btn-sm" %>
             </div>
           <% end %>
         </div><!-- /user-box -->
