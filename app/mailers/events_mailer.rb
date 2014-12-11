@@ -2,11 +2,19 @@ class EventsMailer < ActionMailer::Base
   default from: "noreply@whirledpeas.com"
 
   def new_event(event_id)
-    @users = User.all
+    # @email_users = User.all.collect do |user|
+    #   user.email
+    # end
     @event = Event.find(event_id)
     mail(to:      "noreply@whirledpeas.com",
-         bcc:     "bpraggastis@gmail.com",
-         subject: "Whirled Peas invites you to #{@event.title} on #{@event.event_datetime}.")
+         bcc:     User.all.collect{|user| user.email},
+         subject: "Whirled Peas Event Announcement",
+         autotext: true
+         )
+
+
+
+
   end
 
 end

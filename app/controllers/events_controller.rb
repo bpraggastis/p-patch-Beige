@@ -11,6 +11,7 @@ class EventsController < ApplicationController
       @event.event_datetime = DateTime.parse(params[:event][:event_datetime])
     end
     if @event.save
+      EventsMailer.new_event(@event.id).deliver
       redirect_to root_path, notice: "New Event created."
     else
       render new_event_path, notice: "Event not created."
