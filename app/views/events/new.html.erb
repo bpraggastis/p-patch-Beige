@@ -4,23 +4,23 @@
 <%= f.hidden_field :user_id, value: current_user.id %>
 
 <%= f.label :title , value= "Event Title (required)"%>
-<%= f.text_field :title, class: "form-control",placeholder: "Your Event Name" %><br />
+<%= f.text_field :title, class: "form-control",placeholder: "Enter Your Event Name Here" %><br />
 
 <%= f.label :event_datetime, value= "Date and Time of Event (required)" %>
-<%= f.text_field :event_datetime, class: "form-control", placeholder: DateTime.now.strftime("%b %e, %Y,  %l:%M %P") %><br />
+<%= f.text_field :event_datetime, class: "form-control", placeholder: "Place Date and Time here like: #{DateTime.now.strftime("%b %e, %Y,  %l:%M %P")}" %><br />
 
 <%= f.label :location %>:
-<%= f.text_field :location, class: "form-control" %><br />
+<%= f.text_field :location, placeholder: "Where will the event take place?", class: "form-control" %><br />
 
 <%= f.label :description %>:
-<%= f.text_area :description, class: "form-control" %><br />
+<%= f.text_area :description, placeholder: "What is your event about and why should I come?", class: "form-control" %><br />
 
 <%= f.label :organizer, value= "Organizer (required)" %>:
 <%= f.text_field :organizer, value: current_user.display_name || current_user.username, class: "form-control" %><br />
 
-<%= f.label :contact_email %>:
+<%= f.label :contact_email, value= "Contact Information (required)" %>:
 <%= f.text_field :contact_email, value: current_user.email, class: "form-control" %><br />
 
-<%= f.submit class: "btn btn-default" %>
+<%= f.submit class: "btn btn-default pea-logo" %>
 
 <% end %>
