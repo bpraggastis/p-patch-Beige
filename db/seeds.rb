@@ -31,7 +31,7 @@ betty = bedrock[:betty][:account]
 bedrock_events =
 [
   {title: "Whirled Peas Garden Plot Grand Opening Celebration",
-  event_datetime: "April 1, 2015, 10am",
+  event_datetime: "Dec 1, 2014, 10am",
   location: "Whirled Peas Garden Patch",
   organizer: fred.display_name,
   contact_email: fred.email,
@@ -40,7 +40,7 @@ bedrock_events =
   user_id: fred.id},
 
   {title: "Spring Planting",
-    event_datetime: "April 15, 2015, 8am",
+    event_datetime: "Dec 15, 2014, 8am",
     location: "Whirled Peas Garden Patch",
     organizer: wilma.display_name,
     contact_email: wilma.email,
@@ -49,7 +49,7 @@ bedrock_events =
     user_id: wilma.id},
 
   {title: "Weeding Day",
-    event_datetime: "May 1, 2015 10am",
+    event_datetime: "Jan 1, 2015 10am",
     location: "Whirled Peas Garden Patch",
     organizer: barney.display_name,
     contact_email: barney.email,
@@ -58,7 +58,7 @@ bedrock_events =
     user_id: barney.id},
 
   {title: "Pruning and Weeding",
-    event_datetime: "May 15, 2015 11:30am",
+    event_datetime: "Dec 16, 2014 11:30am",
     location: "Whirled Peas Garden Patch",
     organizer: betty.display_name,
     contact_email: betty.email,
