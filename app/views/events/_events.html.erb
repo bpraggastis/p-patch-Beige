@@ -1,20 +1,31 @@
 <div class = "event-list">
 
   <% if @current_user %>
-    <%= link_to "Create a New Event", new_event_path, class:"pea-logo btn btn-default" %>
+    <%= link_to "Create a New Event", new_event_path, class:" pea-logo btn btn-default" %>
   <% end %>
-  <ul>
-    EVENTS
-    <% @events.each do |event| %>
-      <li><strong><%=  event.title %></strong>&nbsp <%= event.event_datetime.strftime("%b %e, %Y %I:%M %P") %></li>
-    </li>
-          <li> &nbsp&nbsp<%= event.organizer || User.find(event.user_id).display_name || User.find(event.user_id).username %></li>
-      <% if session[:user_id] && @current_user.id == event.user_id %>
-      <li> <%= button_to "DELETE", event_path(event.id), method: "delete"  %>
-       <%= button_to "EDIT", edit_event_path(event.id), method: "get"  %></li>
-      <% end %>
-    <% end %>
 
-  </ul>
+
+    <ul class = "event">
+      <h2>EVENTS IN THE PEAS PATCH</h2>
+    <% @events.each do |event| %>
+
+      <div class = "">
+        <div class="date-of-event">
+          <%= event.event_datetime.strftime("%b %e, %Y %I:%M %P") %></li>
+        </div>
+
+        <div class = "event-options">
+          <ul class = "side-by-side list-inline list-unstyled">
+            <%= link_to event_path(event.id) do %>
+              <li><strong><%=  event.title %></strong></li>
+            <% end %>
+            <% if session[:user_id] == event.user_id %>
+              <li><%= button_to "EDIT", edit_event_path(event.id), method: "get", class: " btn-default pea-logo btn-xs"  %></li>
+              <li><%= button_to "DELETE", event_path(event.id), method: "delete" , class: " btn-default red-pea-logo btn-xs" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
 
 </div>

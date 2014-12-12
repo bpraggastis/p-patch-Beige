@@ -1,0 +1,36 @@
+
+
+  <%= form_for @user , :html => {:class => "form-horizontal"} do |f| %>
+
+
+
+      <%= f.label :username, value: "Username (required)" %>
+      <%= f.text_field :username , class: "form-control", value: @user.username%>
+      <br />
+
+
+      <%= f.label :email, value: "Email" %>
+      <%= f.text_field :email, class: "form-control", value: @user.email %>
+      <br />
+
+
+      <%= f.label :display_name, value: "Full Name" %>
+      <%= f.text_field :display_name,class: "form-control", value: @user.display_name %>
+      <br />
+
+
+      <%= f.label :password, value: "Password (required to login via Whirled Peas)" %>
+      <%= f.password_field :password,class: "form-control", value: @user.password %>
+      <br />
+
+
+      <%= f.label :password_confirmation, value: "Confirm Your Password (required to confirm)" %>
+      <%= f.password_field :password_confirmation,class: "form-control", value: @user.password %>
+      <br />
+
+
+      <%= f.submit "Update Your Account", class: "pea-logo btn btn-default"%>
+      <br />
+
+
+  <% end %>

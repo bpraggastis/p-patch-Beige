@@ -22,6 +22,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def update
     @event = Event.find(params[:id])
     @event.update(events_params)
@@ -41,9 +45,8 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
-
-
   def events_params
     params.require(:event).permit(:title,  :location, :organizer, :contact_email, :description, :user_id)
   end
+
 end
