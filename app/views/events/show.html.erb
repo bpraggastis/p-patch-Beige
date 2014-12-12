@@ -1,0 +1,12 @@
+<div class = "event">
+
+
+  <%= render "new_event_announcement" %>
+
+  <% if @event.user_id == session[:user_id] %>
+    <%= button_to "Edit Event", edit_event_path(@event.id), method: "get", class: "btn btn-default pea-logo" %>
+    <%= button_to "DELETE", event_path(@event.id), method: "delete" , class: " btn-default red-pea-logo" %>    
+
+    <% end %>
+
+</div>

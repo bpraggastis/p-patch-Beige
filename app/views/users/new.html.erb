@@ -1,10 +1,36 @@
-<%= form_for @user do |f|%>
-<ul>
-  <li>Username <%= f.text_field :username , placeholder: "Username"%></li>
-  <li>Email  <%= f.text_field :email, placeholder: "Email" %> </li>
-  <li>Password <%= f.password_field :password %></li>
-  <li><%= f.password_field :password_confirmation %> </li>
-  <li> <%= f.submit %> </li>
 
-</ul>
-<% end %>
+
+  <%= form_for @user , :html => {:class => "form-horizontal"} do |f| %>
+
+
+
+      <%= f.label :username, value: "Username (required)" %>
+      <%= f.text_field :username , class: "form-control", placeholder: "Username"%>
+      <br />
+
+
+      <%= f.label :email, value: "Email" %>
+      <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+      <br />
+
+
+      <%= f.label :display_name, value: "Full Name" %>
+      <%= f.text_field :display_name,class: "form-control", placeholder: "Name for Display Purposes." %>
+      <br />
+
+
+      <%= f.label :password, value: "Password (required to login via Whirled Peas)" %>
+      <%= f.password_field :password,class: "form-control", placeholder: "Password" %>
+      <br />
+
+
+      <%= f.label :password_confirmation, value: "Confirm Your Password (required)" %>
+      <%= f.password_field :password_confirmation,class: "form-control", placeholder: "Confirm Password" %>
+      <br />
+
+
+      <%= f.submit "Create Your Account", class: "pea-logo btn btn-default"%>
+      <br />
+
+
+  <% end %>

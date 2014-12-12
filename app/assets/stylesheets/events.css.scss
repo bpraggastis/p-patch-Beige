@@ -3,54 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#calendar-frame {
-  display: inline-block;
-  width: 770px;
-  border: solid red;
-}
 
-table {
-  margin-bottom: 0 !important;
-  border-bottom: 1px solid #dddddd;
-  border-collapse: collapse !important;
-  border-radius: 1px;
-}
+.event-list {
+  ul {
 
-.month {
-  display: block;
-  text-align: center;
-  font-size: 1.5em;
-}
+  }
+  li {
+    list-style-type: none;
+    display: block;
 
-th, td {
-  display: inline-block;
-  width: 109px;
-  border: solid 1px #dddddd;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
 
-.entry {
-  display: inline-block;
-  height: 10ex;
-  text-align: left;
-  word-wrap: normal;
-  font-size: 10px;
-  overflow: hidden;
-}
-.day {
-  display: inline-block;
-  width: auto;
-  float: left;
-  font-size: 12px;
-  border-right: solid 1px;
-  border-bottom: solid 1px;
-  padding: 2px;
-  margin: 2px;
-}
-
-.entry-row {
-  height-min: 8ex;
-
+  }
 }

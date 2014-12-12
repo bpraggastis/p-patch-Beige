@@ -27,4 +27,13 @@ module ApplicationHelper
     @current_user ? nil : link_to("Create A Whirled Peas Account", new_user_path, :class => "pea-logo btn btn-default btn-xs")
   end
 
+  def edit_account_info_button
+    if @current_user
+      link_to("Edit Account Information", edit_user_path(@current_user.id), class: "btn btn-xs btn-default pea-logo")
+    else
+      nil
+    end
+  end
+
+
 end

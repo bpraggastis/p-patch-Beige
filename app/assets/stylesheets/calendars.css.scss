@@ -1,3 +1,79 @@
 // Place all the styles related to the calendars controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.calendar-heading {
+  display: block;
+  text-align: center;
+}
+
+
+#calendar-frame {
+  display: inline-block;
+  width: 770px;
+  border: solid white;
+}
+
+table {
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid #dddddd;
+  border-collapse: collapse !important;
+  border-radius: 1px;
+}
+
+.month {
+  display: block;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+th, td {
+  display: inline-block;
+  width: 109px;
+  border: solid 1px #dddddd;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  word-wrap: true;
+  overflow: hidden;
+}
+
+td {
+  height: 109px;
+}
+
+.entry {
+  display: inline-block;
+
+  text-align: left;
+  word-wrap: normal;
+  font-size: 10px;
+  overflow: hidden;
+}
+.day {
+  display: inline-block;
+  font-size: 1.1em;
+  float: left;
+  font-size: 12px;
+  padding: 2px;
+  margin:0;
+}
+
+.entry-row {
+  height-min: 8ex;
+
+}
+
+@media (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #DDD;
+    -webkit-overflow-scrolling: touch;
+
+
+  }
+}

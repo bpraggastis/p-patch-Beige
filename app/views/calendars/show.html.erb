@@ -1,11 +1,11 @@
 
-  <div id="calendar-frame">
+  <div id="calendar-frame" class = "table-responsive">
 
 
-  <table id="table-style" data-row-style="rowStyle">
-    <div class="month" > <strong>December</strong>
+  <table id="table-style" class = "table" >
+    <h2 class="calendar-heading"> <strong><%= @date.strftime("%B %Y") %></strong></h2>
 
-    </div>
+
     <tr>
       <th>SUN</th>
       <th>MON</th>
@@ -15,41 +15,29 @@
       <th>FRI</th>
       <th>SAT</th>
     </tr>
-    <tr class = "entry-row">
-      <td class="entry">
-        <div id="120714">
-          <div class = "day">
-            7
-          </div>
-          Lots and lots going on this particular day.
-        </div>
-      </td>
 
-      <td class="entry">
+  <%  (0..@weeks).to_a.each do |idx| %>
 
-      </td>
+    <tr id = <%= "row#{idx}"%> >
 
-      <td class="entry">
+      <% (0..6).to_a.each do |idy| %>
 
-      </td>
+        <td id = <%= "entry#{idx}#{idy}" %> >
+            <div class = <%=  %>>
+              <%= "#{(@fdofw +(idx*7 +idy)).strftime("%-d")}" %>
+            </div>
 
-      <td class="entry">
+            <div class = "entry">
+                <%= "#{Event.entries(@fdofw +(idx*7 +idy))}" %>
+            </div>
+        </td>
 
-      </td>
 
-      <td class="entry">
+      <% end %>
 
-      </td>
-
-      <td class="entry">
-
-      </td>
-
-      <td class="entry">
-
-      </td>
     </tr>
 
+  <% end %>
 
   </table>
 

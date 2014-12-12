@@ -29,19 +29,61 @@ body {
   background: #577101;
   // border: 3px solid #AE9C36;
 
-a {
-  color: #AE9C36;
+  a {
+    color: #AE9C36;
+  }
 }
 
+.event {
+  display: block;
+  border: solid #c2a73b;
+  padding: 10px;
+  text-align: center;
 
 
-  #submit-sign-in {
-    display: inlint-block;
-    width: auto;
-    float: left
+  h3 {
+    text-decoration: underline;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.event-options {
+    display: block;
+    margin: 10px;
+    width: 100%;
+    .side-by-side {
+      li {
+        display: inline-block;
+        list-style-type: none;
+
+      }
+    }
+
+
+
+
+  a {
+    color: #354100;
+    font-size: 1.3em;
+  }
+  a:hover {
+    color: #aecd00;
   }
 
 }
+
+
+
+#submit-sign-in {
+  display: inline-block;
+  width: auto;
+  float: left;
+}
+
+
 
 .header-image {
   display: block;
@@ -62,8 +104,19 @@ a {
 }
 
 .pea-logo {
+  display: inline-block;
   border: solid #AE9C36;
   background: #667650;
+  border-radius: 100%;
+  color: #cbb973;
+}
+
+
+
+.red-pea-logo {
+  display: inline-block;
+  border: solid #AE9C36;
+  background: #b9473f;
   border-radius: 100%;
   color: #cbb973;
 }
@@ -75,13 +128,11 @@ a {
 
 #sign-in {
   display: block;
-  border: solid black;
+
 }
 
 #user-box {
   display: block;
-
-
 }
 
 .notifications {
@@ -92,6 +143,9 @@ a {
   background: white;
 }
 
+.form-control {
+  background-color: rgb(231, 219, 174);
+}
 
 @media (max-width: 768px) {
   .header {
