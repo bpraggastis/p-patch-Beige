@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def send_email_and_redirect_to(article)
-    NewsMailer.send_article(article.id).deliver
+    Resque.enqueue(EmailNewArticleJob, article.id)
     redirect_to(@article)
   end
 end
