@@ -3,6 +3,7 @@
   <% if @current_user %>
     <%= link_to "Create a New Event", new_event_path, class:" pea-logo btn btn-default" %>
   <% end %>
+  <%= link_to "View This Month's Calendar", calendar_path(1), class: "pea-logo btn btn-default" %>
 
 
     <ul class = "event">
