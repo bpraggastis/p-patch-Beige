@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :comments
   has_many :events
+  validates :username, uniqueness: true, allow_nil: true
+  validates :password, confirmation: true
+  # confirmation not working - issue with multiple ways to login
+  # need to create conditional validation which permits no password
+  # if login is done through Twitter
 
   def is_admin?
     true if admin_rights == "true"
@@ -17,12 +22,8 @@ class User < ActiveRecord::Base
   end
 
   def self.new_twitter_user(auth_hash)
-    User.create(uid: auth_hash.uid, username: auth_hash.info.nickname, display_name: auth_hash.info.name ||= "New Twitter User")
+    User.create(uid: auth_hash.uid, display_name: auth_hash.info.name ||= "New Twitter User")
   end
-
-  # this creates an account which links to Twitter, but still need to create
-  # edit_user page which permits other fields for user to be produced
-
 
 
 end
