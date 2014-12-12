@@ -64,10 +64,16 @@ td {
 
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #DDD;
+    -webkit-overflow-scrolling: touch;
 
-  
 
-
-
+  }
 }
