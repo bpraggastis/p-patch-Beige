@@ -6,10 +6,14 @@ class Event < ActiveRecord::Base
   validates :contact_email, presence: true
 
   def self.entries(date)
-    ddate = Date.parse(date)
-    events = Event.where(event_datetime: ddate).collect do |event|
-      event.title event.event_datetime.strftime("%I:%M %P")
+
+    events = Event.all.select do |event|
+      event.event_datetime.strftime("%b %-d, %Y") == date.strftime("%b %-d, %Y")
+   end
+
+    entries = events.collect do |event|
+      "#{event.title}: #{event.event_datetime.strftime("%I:%M %P")}"
     end
-    events
+    return entries.join(" ")
   end
 end
