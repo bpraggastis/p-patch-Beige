@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def user_tagline
     if @current_user
       "Signed in as #{@current_user.username}"
