@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'resque'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'dotenv-rails'
