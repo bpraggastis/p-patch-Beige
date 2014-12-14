@@ -7,3 +7,4 @@
   <%= @article.content %>
 </p>
 <%= link_to "edit", edit_article_path, class: "btn btn-default btn-xs" %>
+<%= button_to "delete", article_path, class: "btn btn-default btn-xs", :method => "delete" %>
