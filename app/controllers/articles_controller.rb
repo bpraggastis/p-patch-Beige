@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :check_if_admin, only: [:new, :create, :edit]
+  before_filter :check_if_admin, only: [:new, :create, :edit, :destroy]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
   before_action :current_user
 
